@@ -1,0 +1,16 @@
+<?php
+     require_once APP.'/lib/render.php';
+     require_once APP.'/config.php';
+     require_once APP.'/lib/conn.php';
+     //renders tasks template
+     require_once APP.'/lib/nav.php';
+     require_once APP.'/src/db/database.php';
+ 
+ 
+     $current='tasks';
+     //extract list-data
+     $gdb=getConnection($dsn,$dbuser,$dbpasswd);
+     $rows=extract_list_items($gdb);
+     
+     current_nav($current);
+     echo render($current,['rows'=>$rows]);
