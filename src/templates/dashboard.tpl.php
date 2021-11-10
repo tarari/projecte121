@@ -8,15 +8,17 @@
             </div>
         </section>
         <section>
-            <div class="bg-blue-200 grid grid-cols-4 grid-rows-4 h-48 rounded-md shadow-2xl">
+            <div class="bg-blue-200 grid   rounded-md shadow-2xl">
                 <h4 class="col-span-4 text-center">Tasks</h4>
                 <?php
                     foreach($rows as $row): ?>
-                            <p><?= $row['name']; ?></p>
-                        
-                     
+                           
+                            <ul>
+                         <?php    foreach($row[0] as $key=>$value): ?>
+                                <li><span class="font-bold"><?=$key;?>:</span><?= $value; ?></li>
+                                <?php endforeach; ?>
                 <?php endforeach; ?>
-            
+                    
                 <div class="col-span-4"></div>
                 <div class="col-span-4"></div>
                 

@@ -12,14 +12,15 @@
     //extract list-data
     $gdb=getConnection($dsn,$dbuser,$dbpasswd);
     $lists=extract_lists($gdb);
+    foreach($lists as $list){
+        $arr_items[]=extract_list_items($gdb,$list['id']);
+    }
   
    
-    foreach($lists as $list){
-        var_dump(extract_list_items($gdb,$list['id']));
-    }
+    
    
-    die;
+   
     current_nav($current);
-    echo render($current,['rows'=>$rows]);
+    echo render($current,['rows'=>$arr_items]);
    
     
